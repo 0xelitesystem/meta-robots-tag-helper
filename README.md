@@ -14,13 +14,35 @@ noindex tells engines to drop the page from results; nofollow tells them not to 
 
 An industrial stencil placard: a crate-board panel with stencilled directives, safety-yellow accents, and the two outputs printed below a heavy rule.
 
+## Use
+
+1. Toggle **index** or **noindex**, and **follow** or **nofollow**.
+2. Switch on any extra restrictions you need: noarchive, nosnippet, noimageindex, notranslate.
+3. Set **max-snippet** and **max-image-preview**, or leave them on omit.
+4. Press **Copy both**, then put the meta tag in the page's head, or set the X-Robots-Tag header on your server for non-HTML files.
+
+Open `index.html` in any modern browser, or host it as a static page. No build step, no dependencies, no network calls.
+
+## Why this exists
+
+A robots directive typed by hand can quietly deindex a page, and non-HTML files like PDFs need the same directives as an HTTP header instead of a tag. This tool writes both from the same toggles and warns when noindex is set. It is one HTML file that runs in your browser, with no tracking and no server, under the MIT license.
+
 ## Privacy
 
 Everything runs in your browser. Nothing you type is sent anywhere, stored, or saved. Closing the tab clears it.
 
-## Use it
+## Run locally
 
-Open `index.html` in any modern browser, or host it as a static page. No build step, no dependencies, no network calls.
+```bash
+git clone https://github.com/0xelitesystem/meta-robots-tag-helper
+cd meta-robots-tag-helper
+```
+
+Open `index.html` in any modern browser. Or serve the folder with `python -m http.server 8000` and visit http://localhost:8000/.
+
+## Build
+
+No build step. The whole tool is one `index.html` file with its CSS and JavaScript inline, and nothing to install.
 
 ## More
 
